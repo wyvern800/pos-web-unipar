@@ -1,0 +1,66 @@
+main {
+  margin: 25px;
+  min-width: 600px;
+}
+main #produtos {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+main #produtos .prod_wrapper {
+  margin: 20px;
+}
+main #produtos .prod {
+  margin: 2px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: 1px solid rgba(151, 151, 151, 0.452);
+}
+main #produtos .prod div {
+  padding-right: 20px;
+  min-width: 150px;
+}
+main #produtos .prod div:last-child {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  margin-left: auto;
+}
+main #produtos .prod div:last-child input {
+  background-color: lightgray;
+  border: 1px solid #979797;
+}
+main #produtos .prod img {
+  margin: 10px;
+  border: 1px solid lightgray;
+}
+main #produtos .prod h1 {
+  font-size: 18px;
+}
+main #checkout {
+  display: flex;
+  flex-direction: row;
+}
+main #checkout #total-itens, main #checkout #valor-total {
+  display: flex;
+  margin-left: 150px;
+  justify-content: flex-end;
+  font-weight: lighter;
+}
+main #checkout #carrinho {
+  background-color: lightgray;
+  padding: 20px;
+  flex-grow: 1;
+}
+main #checkout #carrinho-valores {
+  margin-left: 10px;
+}
+main #checkout #carrinho-valores tr {
+  border-top: 2px solid lightgray;
+}
+
+/*# sourceMappingURL=style.css.map */
