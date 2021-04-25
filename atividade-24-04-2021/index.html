@@ -17,75 +17,68 @@
         ondrop="return dragDrop(event)"
         ondragover="return dragOver(event)"
       >
-      <span id="arraste-produtos"></span>
-          <article
-            id="article1"
-            class="prod rounded"
-            draggable="true"
-            ondragstart="return dragStart(event)"
-          >
-            <div>
-              <img
-                class="rounded"
-                src="https://picsum.photos/64/64?grayscale"
-              />
-            </div>
-            <div>
-              <h1>Produto 1</h1>
-              <p>Descrição</p>
-            </div>
-            <div class="valores">
-              <input
-                class="rounded"
-                type="number"
-                name="qtde"
-                min="1"
-                value="1"
-              />
-              <input
-                class="rounded"
-                type="text"
-                name="valor"
-                value="2.50"
-                disabled
-              />
-            </div>
-          </article>
+        <span id="arraste-produtos"></span>
+        <article
+          id="article1"
+          class="prod rounded"
+          draggable="true"
+          ondragstart="return dragStart(event)"
+        >
+          <div>
+            <img class="rounded" src="https://picsum.photos/64/64?grayscale" />
+          </div>
+          <div>
+            <h1>Produto 1</h1>
+            <p>Descrição</p>
+          </div>
+          <div class="valores">
+            <input
+              class="rounded"
+              type="number"
+              name="qtde"
+              min="1"
+              value="1"
+            />
+            <input
+              class="rounded"
+              type="text"
+              name="valor"
+              value="2.50"
+              disabled
+            />
+          </div>
+        </article>
 
-          <article
-            id="article2"
-            class="prod rounded"
-            draggable="true"
-            ondragstart="return dragStart(event)"
-          >
-            <div>
-              <img
-                class="rounded"
-                src="https://picsum.photos/64/64?grayscale"
-              />
-            </div>
-            <div>
-              <h1>Produto 2</h1>
-              <p>Descrição</p>
-            </div>
-            <div class="valores">
-              <input
-                class="rounded"
-                type="number"
-                name="qtde"
-                min="1"
-                value="1"
-              />
-              <input
-                class="rounded"
-                type="text"
-                name="valor"
-                value="2.50"
-                disabled
-              />
-            </div>
-          </article>
-        
+        <article
+          id="article2"
+          class="prod rounded"
+          draggable="true"
+          ondragstart="return dragStart(event)"
+        >
+          <div>
+            <img class="rounded" src="https://picsum.photos/64/64?grayscale" />
+          </div>
+          <div>
+            <h1>Produto 2</h1>
+            <p>Descrição</p>
+          </div>
+          <div class="valores">
+            <input
+              class="rounded"
+              type="number"
+              name="qtde"
+              min="1"
+              value="1"
+            />
+            <input
+              class="rounded"
+              type="text"
+              name="valor"
+              value="2.50"
+              disabled
+            />
+          </div>
+        </article>
       </section>
       <h2>Carrinho</h2>
       <section id="checkout">
@@ -95,8 +88,8 @@
           ondrop="return dragDrop(event)"
           ondragover="return dragOver(event)"
         >
-        <span id="arraste-carrinho"></span>
-      </section>
+          <span id="arraste-carrinho"></span>
+        </section>
         <section id="carrinho-valores">
           <table>
             <tbody>
@@ -121,6 +114,29 @@
       crossorigin="anonymous"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+      $("input[name='qtde']").change(function () {
+        updateValues();
+      });
+
+      function updateValues() {
+        var total = 0;
+        var quant_total = 0;
+
+        // Loops through all the items and increase the total price to show on screen
+        $("#carrinho")
+          .find("article")
+          .each(function (index) {
+            var quantity =$( this ).find("input[name='qtde']").val();
+			      var individual_price=$( this ).find("input[name='valor']").val();
+            var sub_total = quantity * individual_price;
+            quant_total = quant_total + parseInt(quantity);
+            total = total + sub_total;
+          });
+
+        $("#valor-total").html(total);
+        $("#total-itens").html(quant_total);
+      }
+    </script>
   </body>
 </html>
