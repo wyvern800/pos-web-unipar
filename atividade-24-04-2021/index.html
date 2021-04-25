@@ -11,13 +11,18 @@
   <body>
     <main>
       <h2>Produtos</h2>
-      <section id="produtos" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="prod_wrapper">
+      <section
+        id="produtos"
+        ondragenter="return dragEnter(event)"
+        ondrop="return dragDrop(event)"
+        ondragover="return dragOver(event)"
+      >
+      <span id="arraste-produtos"></span>
           <article
+            id="article1"
             class="prod rounded"
             draggable="true"
-            ondragstart="drag(event)"
-            id="article1"
+            ondragstart="return dragStart(event)"
           >
             <div>
               <img
@@ -34,8 +39,8 @@
                 class="rounded"
                 type="number"
                 name="qtde"
-                min="0"
-                value="0"
+                min="1"
+                value="1"
               />
               <input
                 class="rounded"
@@ -48,10 +53,10 @@
           </article>
 
           <article
+            id="article2"
             class="prod rounded"
             draggable="true"
-            ondragstart="drag(event)"
-            id="article2"
+            ondragstart="return dragStart(event)"
           >
             <div>
               <img
@@ -68,8 +73,8 @@
                 class="rounded"
                 type="number"
                 name="qtde"
-                min="0"
-                value="0"
+                min="1"
+                value="1"
               />
               <input
                 class="rounded"
@@ -80,25 +85,28 @@
               />
             </div>
           </article>
-        </div>
+        
       </section>
       <h2>Carrinho</h2>
       <section id="checkout">
         <section
           id="carrinho"
-          ondrop="drop(event)"
-          ondragover="allowDrop(event)"
-        ></section>
+          ondragenter="return dragEnter(event)"
+          ondrop="return dragDrop(event)"
+          ondragover="return dragOver(event)"
+        >
+        <span id="arraste-carrinho"></span>
+      </section>
         <section id="carrinho-valores">
           <table>
             <tbody>
               <tr>
                 <th>Total itens</th>
-                <td id="total-itens">8</td>
+                <td id="total-itens">0</td>
               </tr>
               <tr>
                 <th>Total</th>
-                <td id="valor-total">9</td>
+                <td id="valor-total">0</td>
               </tr>
             </tbody>
           </table>
@@ -112,10 +120,7 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"></script>
   </body>
 </html>
